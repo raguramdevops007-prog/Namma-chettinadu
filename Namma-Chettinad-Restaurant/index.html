@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namma Chettinad | Authentic Taste</title>
+    <meta name="description" content="Enjoy authentic Chettinad cuisine. Explore our menu and order your favourite food online.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <header class="navbar">
+        <a href="#home" class="logo">
+            <span class="logo-icon">NC</span>
+            <span>NAMMA <b>CHETTINAD</b>
+                <small>AUTHENTIC SOUTH INDIAN CUISINE</small>
+            </span>
+        </a>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#menu">Our Menu</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <button class="cart-btn" onclick="toggleCart()">
+            🛒 Cart <span id="cartCount">0</span>
+        </button>
+
+        <button class="menu-toggle" onclick="toggleNavigation()">☰</button>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <span class="tagline">WELCOME TO NAMMA CHETTINAD</span>
+
+            <h1>Authentic Taste.<br>
+                <span>Traditional Soul.</span>
+            </h1>
+
+            <p>
+                Experience the legendary flavours of Chettinad.
+                Fresh ingredients, traditional recipes and unforgettable taste.
+            </p>
+
+            <a href="#menu" class="main-btn">Explore Our Menu →</a>
+
+            <div class="hero-info">
+                <span>✦ Freshly Prepared</span>
+                <span>✦ Traditional Recipes</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about section" id="about">
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=900&q=85"
+                 alt="Traditional South Indian food">
+        </div>
+
+        <div class="about-content">
+            <span class="section-tag">OUR STORY</span>
+            <h2>A Tradition of<br><span>Authentic Flavours</span></h2>
+
+            <p>
+                Welcome to Namma Chettinad, where traditional Tamil
+                cooking meets authentic hospitality.
+            </p>
+
+            <p>
+                Inspired by Karaikudi cuisine, our food celebrates
+                aromatic spices, freshly ground masalas and recipes
+                passed down through generations.
+            </p>
+
+            <a href="#menu" class="main-btn">Discover Our Food →</a>
+        </div>
+    </section>
+
+    <!-- MENU -->
+    <section class="menu-section section" id="menu">
+        <div class="section-heading">
+            <span class="section-tag">TASTE THE TRADITION</span>
+            <h2>Our Special <span>Menu</span></h2>
+            <p>Delicious food made with traditional Chettinad flavours.</p>
+        </div>
+
+        <!-- CATEGORY FILTERS -->
+        <div class="filters">
+            <button class="filter-btn active" data-category="All">All Items</button>
+            <button class="filter-btn" data-category="Biryani">Biryani</button>
+            <button class="filter-btn" data-category="Non-Veg">Non-Veg</button>
+            <button class="filter-btn" data-category="Veg">Veg</button>
+            <button class="filter-btn" data-category="Tiffin">Tiffin</button>
+            <button class="filter-btn" data-category="Drinks">Drinks</button>
+        </div>
+
+        <!-- JAVASCRIPT WILL DISPLAY FOOD HERE -->
+        <div class="food-grid" id="foodGrid"></div>
+    </section>
+
+    <!-- PROMOTIONAL BANNER -->
+    <section class="promo">
+        <div class="promo-content">
+            <span class="section-tag">MADE WITH LOVE</span>
+            <h2>Good Food.<br>Great Memories.</h2>
+            <p>Bring the taste of traditional Chettinad to your table.</p>
+            <a href="#menu" class="light-btn">Order Your Favourite →</a>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact section" id="contact">
+        <div>
+            <span class="section-tag">VISIT US</span>
+            <h2>Let's Share a<br><span>Delicious Meal</span></h2>
+        </div>
+
+        <div class="contact-info">
+            <p><b>📍 Address</b><br>123 Main Road, Tamil Nadu, India</p>
+            <p><b>📞 Phone</b><br>+91 98765 43210</p>
+            <p><b>🕒 Opening Hours</b><br>Every day: 11 AM – 10:30 PM</p>
+            <p><b>✉ Email</b><br>hello@nammachettinad.com</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo">NAMMA <b>CHETTINAD</b></div>
+        <p>Authentic South Indian Cuisine</p>
+        <p>© 2026 Namma Chettinad. Demo Website.</p>
+    </footer>
+
+    <!-- SHOPPING CART -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+
+    <aside class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2>Your Cart 🛒</h2>
+            <button onclick="toggleCart()" class="close-btn">×</button>
+        </div>
+
+        <div id="cartItems" class="cart-items">
+            <p class="empty-cart">Your cart is empty.</p>
+        </div>
+
+        <div class="cart-footer">
+            <div class="total-row">
+                <span>Total Amount</span>
+                <strong id="cartTotal">₹0</strong>
+            </div>
+            <button class="main-btn checkout-btn" onclick="openCheckout()">
+                Proceed to Order →
+            </button>
+            <p class="demo-note">Demo ordering only. No real payment.</p>
+        </div>
+    </aside>
+
+    <!-- CHECKOUT POPUP -->
+    <div class="checkout-modal" id="checkoutModal">
+        <div class="checkout-box">
+            <button class="close-btn" onclick="closeCheckout()">×</button>
+
+            <span class="section-tag">ALMOST THERE</span>
+            <h2>Complete Your Order</h2>
+
+            <form id="checkoutForm">
+                <label>Customer Name</label>
+                <input type="text" id="customerName" required placeholder="Your name">
+
+                <label>Mobile Number</label>
+                <input type="tel" id="customerPhone" required
+                       pattern="[0-9]{10}" maxlength="10"
+                       placeholder="10 digit mobile number">
+
+                <label>Delivery Address</label>
+                <textarea id="customerAddress" required
+                          placeholder="Enter your address"></textarea>
+
+                <div class="total-row">
+                    <span>Order Total</span>
+                    <strong id="checkoutTotal">₹0</strong>
+                </div>
+
+                <button type="submit" class="main-btn checkout-btn">
+                    Confirm Demo Order
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ORDER SUCCESS POPUP -->
+    <div class="success-modal" id="successModal">
+        <div class="success-box">
+            <div class="success-icon">✓</div>
+            <h2>Order Received!</h2>
+            <p id="successMessage"></p>
+            <button class="main-btn" onclick="closeSuccess()">Continue Shopping</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
